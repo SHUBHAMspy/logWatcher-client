@@ -3,9 +3,9 @@ import { io } from 'socket.io-client';
 
 const Logs = () => {
   const [logs, setLogs] = useState([]);
-  console.log(logs);
+
   useEffect(() => {
-    const socket = io('http://localhost:5000');
+    const socket = io('https://log-watcher-node-socketio.onrender.com');
     
     // New log
     socket.on('update-log', data => {
