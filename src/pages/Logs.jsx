@@ -6,10 +6,10 @@ const Logs = () => {
 
   useEffect(() => {
     const socket = io('https://log-watcher-node-socketio.onrender.com');
-    
+
     // New log
     socket.on('update-log', data => {
-      setLogs(prevLogs => [...prevLogs,data]);
+      setLogs(prevLogs => [...prevLogs, data]);
     });
 
     // Initial logs
@@ -27,10 +27,10 @@ const Logs = () => {
 
   return (
     <div>
-      <h1>Log Viewer</h1>
+      <h1 className='text-center text-3xl font-bold mb-4'>Log Viewer</h1>
       <ul>
-        {logs.map((log,index) => (
-          <li key={index}>{log}</li>
+        {logs.map((log, index) => (
+          <li key={index} className='font-bold text-sm p-1 border-solid border-2 border-gray-500 rounded-md m-2'>{log}</li>
         ))}
       </ul>
     </div>
